@@ -1,0 +1,73 @@
+
+/* Heart.css */
+.heart-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.heart {
+  position: absolute;
+  bottom: 0;
+  color: white; /* White hearts look amazing on pink gradients */
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 
+               0 0 10px rgba(255, 77, 109, 0.5);
+  will-change: transform, opacity;
+  animation: floatUp var(--duration) linear forwards;
+}
+
+.sparkle {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  /* Soft glow for the sparkle */
+  box-shadow: 0 0 10px 1px rgba(255, 255, 255, 0.6);
+  animation: twinkle var(--sparkle-duration) ease-in-out forwards;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 0.6; /* Not too bright, as you requested */
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+/* Ensure the container spans the whole screen for sparkles */
+.heart-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1; /* Keep it behind the main-wrapper but visible */
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(var(--start-rotation));
+    opacity: 1;
+  }
+  60% {
+    opacity: 1; /* Fade begins near the top */
+  }
+  100% {
+    transform: translateY(-100vh) rotate(var(--end-rotation));
+    opacity: 0;
+  }
+}
