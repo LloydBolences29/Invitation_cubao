@@ -1,10 +1,12 @@
 /* MainApp.css */
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@300;400&display=swap");
 
-.main-container {
+.main-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 1.5rem;
   min-height: 100vh; /* Changed from height to min-height */
   width: 100vw;
   margin: 0;
@@ -16,7 +18,7 @@
   position: relative;
 }
 
-.main-wrapper {
+.intro-card {
   /* Glass Effect */
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(15px);
@@ -34,6 +36,11 @@
 
   animation: longFadeInUp 7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   opacity: 0; /* Ensures it starts invisible */
+}
+
+.button-invite{
+    z-index: 1000;
+  animation: longFadeInUp 7.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 h1 {
@@ -81,6 +88,109 @@ h1 {
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
   background: #ffccd5;
+}
+
+.fade-out-up {
+    animation: fadeOutUp 0.8s ease-out forwards !important;
+    pointer-events: none; /* Prevents clicking during exit */
+}
+.glass-morph-reveal {
+  animation: letterToGlass 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  color: white;
+  text-align: center;
+  max-width: 450px;
+  width: 90%;
+}
+
+.details-button {
+  background: none;
+  border: none;
+  color: #ffccd5;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  cursor: pointer;
+  position: relative;
+  padding: 5px 0;
+  margin-top: 15px;
+}
+
+.details-button::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: #ffccd5;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.details-button:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+@keyframes letterToGlass {
+  0% {
+    /* Start small and white (like the letter) */
+    transform: scale(0.5) translateY(50px);
+    background: rgba(255, 255, 255, 1);
+    backdrop-filter: blur(0px);
+    width: 260px;
+    height: 160px;
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    /* Morph into the full glass card */
+    transform: scale(1) translateY(0);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    width: 90%;
+    max-width: 450px;
+  }
+}
+
+.full-invitation-content {
+  /* Delay the text so the card grows first */
+  animation: fadeIn 0.8s ease forwards 0.8s;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.envelope-stage.fade-out {
+    animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; visibility: hidden; }
+}
+
+
+
+@keyframes fadeOutUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-50px); /* Drifts upward as it disappears */
+    }
 }
 
 @keyframes longFadeInUp {

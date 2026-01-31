@@ -1,0 +1,108 @@
+.paper-stationery {
+  background-color: #fffdfa;
+  background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+  width: 90%;
+  max-width: 500px;
+  min-height: 400px;
+  padding: 40px;
+  
+  /* Multi-layered shadow for 'Floating' effect */
+  box-shadow: 
+    0 1px 1px rgba(0,0,0,0.1), 
+    0 10px 20px rgba(0,0,0,0.15), 
+    0 20px 40px rgba(0,0,0,0.2),
+    0 30px 60px rgba(0,0,0,0.1); 
+
+  color: #2c2c2c;
+  position: relative;
+  text-align: left;
+  border-radius: 4px; /* Slightly softer corners look more premium */
+  margin: auto;
+  
+  /* The floating tilt */
+  transform: rotate(-1deg) translateY(0); 
+  
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  animation: longFadeInUp 5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.date-stamp {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #999;
+  margin-bottom: 30px;
+}
+
+.salutation {
+  font-family: "Playfair Display", serif;
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.handwritten-text {
+  font-family: "Playfair Display", serif; /* Or a cursive font if imported */
+  font-size: 1.15rem;
+  line-height: 1.8;
+  display: block;
+}
+
+.letter-footer {
+  margin-top: 40px;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+}
+
+.signature {
+  font-size: 1.8rem;
+  margin-top: 5px;
+  font-family: "Playfair Display", serif;
+}
+
+/* The Details Button as a small ink stamp or link */
+.details-link {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  background: none;
+  border: none;
+  color: #ff4d6d;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards 12s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes longFadeInUp {
+  0% {
+    opacity: 0;
+    /* Start from 50% of the screen height down */
+    transform: translateY(50vh);
+  }
+  35% {
+    opacity: 0;
+    transform: translateY(25vh);
+  }
+
+  50% {
+    opacity: 0.5; /* Fade in fully before it reaches the final stop */
+  }
+
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

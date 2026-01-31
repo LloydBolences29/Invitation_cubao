@@ -1,0 +1,126 @@
+.envelope-container {
+  position: relative;
+  cursor: pointer;
+  perspective: 1000px;
+  animation: longFadeInUp 4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.envelope-wrapper {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background-color: #f0f0f0;
+  overflow: hidden; /* This is the secret! It clips the letter until it slides up */
+  z-index: 1;
+}
+
+/* The Triangle Flap */
+.flap {
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-top: 100px solid #d1d1d1; /* Slightly darker than body */
+  transform-origin: top;
+  transition: transform 0.6s ease;
+  z-index: 4; /* Sits on the very top */
+}
+
+.open {
+  animation: fadeOutUp 0.8s ease-out forwards !important;
+}
+
+.open .flap {
+  transform: rotateX(200deg);
+  z-index: 4; /* Moves behind once opened */
+}
+
+/* The Front Pocket (The V-Shape) */
+.pocket {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 120px;
+  background-color: #ffffff;
+  z-index: 3; /* Must be higher than the letter */
+  clip-path: polygon(0% 0%, 50% 50%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+/* The Letter inside */
+.letter-preview {
+  position: absolute;
+  bottom: -150px; /* Start it completely below the visible area */
+  left: 20px;
+  width: 260px;
+  height: 150px;
+  background: white;
+  z-index: 2; /* Between back and pocket */
+  transition: transform 0.8s ease 0.6s;
+}
+.letter-preview p {
+  margin: 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  color: #333;
+  text-align: center;
+}
+
+.open .letter-preview {
+  /* Move it up into view only when the 'open' class is added */
+  transform: translateY(-190px);
+}
+.tap-hint {
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+  font-style: italic;
+  opacity: 0.8;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes longFadeInUp {
+  0% {
+    opacity: 0;
+    /* Start from 50% of the screen height down */
+    transform: translateY(50vh);
+  }
+  35% {
+    opacity: 0;
+    transform: translateY(25vh);
+  }
+
+  50% {
+    opacity: 0.5; /* Fade in fully before it reaches the final stop */
+  }
+
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-50px); /* Drifts upward as it disappears */
+    }
+}
