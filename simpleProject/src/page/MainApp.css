@@ -149,6 +149,56 @@ h1 {
   gap: 1rem;
 }
 
+.more-details-header {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem; /* Slightly larger for emphasis */
+  font-style: italic; /* Makes the question feel more personal */
+  color: #ffccd5;
+  text-align: center;
+  margin-bottom: 2rem;
+  
+  /* Initial state before animation */
+  opacity: 0;
+  letter-spacing: -2px;
+  
+  /* Applying the custom entrance */
+  animation: revealText 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.2s; /* Appears just before the cards start popping in */
+  
+  /* Subtle glow to match the theme */
+  text-shadow: 0 0 15px rgba(255, 204, 213, 0.3);
+}
+.more-details-header h3 {
+  position: relative;
+  display: inline-block;
+}
+
+.more-details-header h3::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 25%;
+  width: 50%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #ffccd5, transparent);
+  opacity: 0.6;
+}
+
+@keyframes revealText {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+    letter-spacing: -2px;
+    filter: blur(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: 1px; /* Gently expands the letters */
+    filter: blur(0);
+  }
+}
+
 .navigation-wrapper {
   display: flex;
   justify-content: center;
@@ -356,11 +406,6 @@ h1 {
   opacity: 0;
 }
 
-
-
-
-
-
 @keyframes slideUpFade {
   from {
     opacity: 0;
@@ -372,14 +417,12 @@ h1 {
   }
 }
 
-.more-details-buttons{
+.more-details-buttons {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
   margin-top: 5px;
 }
-
-
 
 /* Base button styling */
 .invite-button {
@@ -397,11 +440,6 @@ h1 {
   backdrop-filter: blur(5px);
   animation: longFadeInUp 5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
-
-
-
-
-
 
 @keyframes longFadeInUp {
   0% {
@@ -451,4 +489,3 @@ h1 {
     visibility: hidden;
   }
 }
-
