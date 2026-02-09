@@ -1,4 +1,3 @@
-
 /* Heart.css */
 .heart-container {
   position: fixed;
@@ -15,8 +14,9 @@
   position: absolute;
   bottom: 0;
   color: white; /* White hearts look amazing on pink gradients */
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 
-               0 0 10px rgba(255, 77, 109, 0.5);
+  text-shadow:
+    0 0 5px rgba(255, 255, 255, 0.8),
+    0 0 10px rgba(255, 77, 109, 0.5);
   will-change: transform, opacity;
   animation: floatUp var(--duration) linear forwards;
 }
@@ -74,12 +74,17 @@
 
 @media only screen and (max-width: 600px) {
   .heart {
-  position: absolute;
-  bottom: 0;
-  color: white; /* White hearts look amazing on pink gradients */
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 
-               0 0 10px rgba(255, 77, 109, 0.5);
-  will-change: transform, opacity;
-  animation: floatUp var(--duration) linear forwards;  }
-  
+    position: absolute;
+    bottom: 0;
+    color: white;
+    /* Force the browser to override the emoji color */
+    -webkit-text-fill-color: white;
+    text-shadow:
+      0 0 5px rgba(255, 255, 255, 0.8),
+      0 0 10px rgba(255, 77, 109, 0.5);
+    opacity: 0.8;
+    filter: drop-shadow(0 0 2px white);
+    will-change: transform, opacity;
+    animation: floatUp var(--duration) linear forwards;
+  }
 }
