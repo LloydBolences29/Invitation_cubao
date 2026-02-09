@@ -38,14 +38,14 @@
   opacity: 0; /* Ensures it starts invisible */
 }
 
-.button-invite{
-    z-index: 1000;
+.button-invite {
+  z-index: 1000;
   animation: longFadeInUp 7.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 h1 {
   font-family: "Playfair Display", serif;
-  font-size: 2.2rem;
+  font-size: 1.9rem;
   margin: 0.5rem 0;
   color: #ffffff;
 }
@@ -91,8 +91,8 @@ h1 {
 }
 
 .fade-out-up {
-    animation: fadeOutUp 0.8s ease-out forwards !important;
-    pointer-events: none; /* Prevents clicking during exit */
+  animation: fadeOutUp 0.8s ease-out forwards !important;
+  pointer-events: none; /* Prevents clicking during exit */
 }
 .glass-morph-reveal {
   animation: letterToGlass 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
@@ -106,13 +106,14 @@ h1 {
   text-align: center;
   max-width: 450px;
   width: 90%;
+  z-index: 1005;
 }
 
 .details-button {
   background: none;
   border: none;
   color: #ffccd5;
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-style: italic;
   font-size: 1.1rem;
   cursor: pointer;
@@ -122,7 +123,7 @@ h1 {
 }
 
 .details-button::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 1px;
@@ -137,6 +138,21 @@ h1 {
 .details-button:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+.phase-3-container {
+  width: 95vw;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.navigation-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
 }
 
 @keyframes letterToGlass {
@@ -169,28 +185,31 @@ h1 {
 }
 
 @keyframes fadeIn {
-  to { opacity: 1; }
+  to {
+    opacity: 1;
+  }
 }
 
 .envelope-stage.fade-out {
-    animation: fadeOut 0.5s forwards;
+  animation: fadeOut 0.5s forwards;
 }
 
 @keyframes fadeOut {
-    to { opacity: 0; visibility: hidden; }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
-
-
 @keyframes fadeOutUp {
-    0% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-50px); /* Drifts upward as it disappears */
-    }
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50px); /* Drifts upward as it disappears */
+  }
 }
 
 @keyframes longFadeInUp {
@@ -216,3 +235,220 @@ h1 {
     transform: translateY(0);
   }
 }
+
+.details-card {
+  opacity: 0;
+  transform: translateY(30px);
+  /* The cubic-bezier gives it that 'premium' elastic bounce */
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Specific entrance animations for each card */
+.animate-card-1 {
+  animation: cardPopIn 0.8s ease forwards 0.2s;
+}
+.animate-card-2 {
+  animation: cardPopIn 0.8s ease forwards 0.4s;
+}
+.animate-card-3 {
+  animation: cardPopIn 0.8s ease forwards 0.6s;
+}
+
+@keyframes cardPopIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle continuous floating animation for the icons */
+
+.more-details-wrapper {
+  display: flex;
+  flex-direction: row; /* Desktop horizontal layout */
+  gap: 2rem;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.details-card {
+  /* This creates the Glassmorphism effect */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  padding: 2.5rem 1.5rem;
+  border-radius: 20px;
+  width: 350px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.details-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #ffccd5;
+}
+
+.main-info {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.sub-info {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  font-style: italic;
+}
+
+/* Animations from your setup */
+.card-icon {
+  animation: floatIcon 3s ease-in-out infinite;
+  color: #ffccd5;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+@keyframes floatIcon {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.details-card:hover {
+  transform: translateY(-15px) scale(1.05);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(255, 77, 109, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Updated Mobile Responsive */
+@media only screen and (max-width: 780px) {
+  .more-details-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .details-card {
+    width: 90%;
+  }
+}
+
+/* Container for the buttons */
+.navigation-wrapper {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Entrance animation */
+  animation: slideUpFade 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+}
+
+
+
+
+
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.more-details-buttons{
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 5px;
+}
+
+
+
+/* Base button styling */
+.invite-button {
+  padding: 12px 28px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+  animation: longFadeInUp 5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+
+
+
+
+
+@keyframes longFadeInUp {
+  0% {
+    opacity: 0;
+    /* Start from 50% of the screen height down */
+    transform: translateY(50vh);
+  }
+  35% {
+    opacity: 0;
+    transform: translateY(25vh);
+  }
+
+  50% {
+    opacity: 0.5; /* Fade in fully before it reaches the final stop */
+  }
+
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 77, 109, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(255, 77, 109, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 77, 109, 0);
+  }
+}
+
+/* The fade-out class you already have */
+.fade-out-up {
+  animation: fadeOutUp 0.8s ease forwards;
+}
+
+@keyframes fadeOutUp {
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+    visibility: hidden;
+  }
+}
+

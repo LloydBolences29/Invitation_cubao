@@ -3,11 +3,11 @@ import { useState } from "react";
 const IntroCard = () => {
   return (
     <>
-      <p className="subtitle">To my favorite Lovey,</p>
-      <h1>Let’s Get Lost in Time</h1>
+      <p className="subtitle">To my Psychology Lovey Dovey (Zyra),</p>
+      <h1>This Custom Made Webpage Invitation is for you!!</h1>
       <div className="divider"></div>
       <p className="details">
-        Let’s create some memories <br /> until the sun goes down.
+        An invitation to create some memories <br /> until the sun goes down.
       </p>
     </>
   );

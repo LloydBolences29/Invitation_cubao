@@ -5,6 +5,7 @@
   max-width: 500px;
   min-height: 400px;
   padding: 40px;
+  border-radius: 20px;
   
   /* Multi-layered shadow for 'Floating' effect */
   box-shadow: 
@@ -16,8 +17,9 @@
   color: #2c2c2c;
   position: relative;
   text-align: left;
-  border-radius: 4px; /* Slightly softer corners look more premium */
+  border-radius: 20px; /* Slightly softer corners look more premium */
   margin: auto;
+
   
   /* The floating tilt */
   transform: rotate(-1deg) translateY(0); 
@@ -54,8 +56,8 @@
   font-style: italic;
 }
 
-.signature {
-  font-size: 1.8rem;
+.letter-signature {
+  font-size: 1.3rem;
   margin-top: 5px;
   font-family: "Playfair Display", serif;
 }
