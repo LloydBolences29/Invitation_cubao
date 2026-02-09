@@ -4,7 +4,7 @@ import './HeartBackground.css';
 const HeartBackground = () => {
   const [hearts, setHearts] = useState([]);
   const [sparkles, setSparkles] = useState([]);
-  const heartChar = "❤️\uFE0E";
+  const heartChar = "🤍\uFE0E";
 
   // HEART LOGIC (Upward moving)
   useEffect(() => {
