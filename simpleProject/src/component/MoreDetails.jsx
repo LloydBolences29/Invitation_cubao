@@ -14,7 +14,7 @@ const MoreDetails = () => {
           </div>
           <h3>When?</h3>
           <p className="main-info">February 22, 2026</p>
-          <p className="sub-info">Sunday • 9am until 4pm</p>
+          <p className="sub-info">Sunday • 9am until 3pm</p>
         </div>
 
         <div className="details-card animate-card-2">
@@ -22,7 +22,7 @@ const MoreDetails = () => {
             <Shirt size={32} strokeWidth={1.2} />
           </div>
           <h3>The Look</h3>
-          <p className="main-info">Anything with White</p>
+          <p className="main-info">Anything Pastel</p>
           <p className="sub-info">Light, airy, and comfy</p>
         </div>
 
@@ -32,7 +32,7 @@ const MoreDetails = () => {
           </div>
           <h3>Where?</h3>
           <p className="main-info">Around Cubao</p>
-          <p className="sub-info">Coffee & sunset merienda</p>
+          <p className="sub-info">Coffee & some merienda</p>
         </div>
       </div>
     </div>

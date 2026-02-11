@@ -4,6 +4,7 @@ import HeartBackground from "../component/HeartBackground";
 import IntroCard from "../component/IntroCard";
 import Envelope from "../component/Envelope";
 import LetterInvitation from "../component/LetterInvitation";
+import SeeYou from "../component/SeeYou";
 const MoreDetails = lazy(() => import("../component/MoreDetails"));
 const SayYes = lazy(() => import("../component/SayYes"));
 const MainApp = () => {
@@ -22,7 +23,7 @@ const MainApp = () => {
   };
 
   const handleSayYesClick = () => {
-    setPhase(3);
+    setPhase(5);
   };
 
   const handleEnvelopeOpen = () => {
@@ -142,7 +143,14 @@ const MainApp = () => {
 
         {phase === 4 && (
           <div className="phase-4-container">
-            <SayYes onAccept={}/>
+            <SayYes onAccept={handleOnAccept}/>
+          </div>
+        )}
+
+
+        {phase === 5 && (
+          <div className="phase-5-container">
+            <SeeYou />
           </div>
         )}
       </div>

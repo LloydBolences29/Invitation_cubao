@@ -1,5 +1,5 @@
-import React from 'react'
-import './SayYes.css'
+import React from "react";
+import "./SayYes.css";
 
 const SayYes = ({ onAccept }) => {
   return (
@@ -10,22 +10,32 @@ const SayYes = ({ onAccept }) => {
           <h2 className="main-question">Will you go on a date with me?</h2>
         </div>
 
-        <div className='say-yes-date-information'>
-          <div className="info-badge">
-            <span>📅 February 22, 2026</span>
+        <div className="say-yes-date-information">
+          <div>
+            <div className="info-badge">
+              <span>📅 February 22, 2026</span>
+            </div>
+            <div className="info-badge">
+              <span>📍 Around Cubao</span>
+            </div>
           </div>
-          <div className="info-badge">
-            <span>📍 Around Cubao</span>
+
+          <div>
+            <img src="/bg2.png" className="say-yes-img" style={{zIndex:'1100', width: '200px', height: 'auto'}} alt="" />
           </div>
         </div>
 
-        <div className='say-yes-buttons-area'>
-          <button className='say-yes-button primary' onClick={onAccept}>Yes!</button>
-          <button className='say-yes-button secondary' onClick={onAccept}>Of Course</button>
+        <div className="say-yes-buttons-area">
+          <button className="say-yes-button primary" onClick={onAccept}>
+            Yes!
+          </button>
+          <button className="say-yes-button secondary" onClick={onAccept}>
+            Of Course
+          </button>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SayYes
+export default SayYes;
