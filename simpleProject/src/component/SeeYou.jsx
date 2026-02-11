@@ -22,7 +22,7 @@ const SeeYou = () => {
 
         <div className="final-message">
           <p>See youu!!</p>
-          <p>I'll be fetching you before 9am jan sa crame!! Can't wait to see youu, my prettyy loveyy doveyy!!</p>
+          <p>I'll pick you up before 9am jan sa crame!! Can't wait to see youu, my prettyy loveyy doveyy!!</p>
           <div className="heart-pulse">💖</div>
         </div>
       </div>
