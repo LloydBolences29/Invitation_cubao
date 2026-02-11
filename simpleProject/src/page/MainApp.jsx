@@ -5,7 +5,7 @@ import IntroCard from "../component/IntroCard";
 import Envelope from "../component/Envelope";
 import LetterInvitation from "../component/LetterInvitation";
 const MoreDetails = lazy(() => import("../component/MoreDetails"));
-
+const SayYes = lazy(() => import("../component/SayYes"));
 const MainApp = () => {
   const [showEnvelope, setShowEnvelope] = useState(false);
   const [phase, setPhase] = useState(0);
@@ -60,6 +60,17 @@ const MainApp = () => {
     }
   };
 
+  const handleSetToPhaseThree = () => {
+    setIsAccepted(true);
+    setTimeout(() => {
+      setPhase(4);
+    }, 3000)
+  }
+
+  const handleOnAccept = () =>{
+    setPhase(5)
+  }
+
   return (
     <div className="main-container">
       <div className="main-wrapper">
@@ -99,9 +110,9 @@ const MainApp = () => {
         {phase === 3 && (
           <div className="phase-3-container">
             {/* 1. Wrap everything in one parent <div> or Fragment */}
-            <div className="content-area">{showInvitationDetails()}</div>
+            <div className={`content-area ${isAccepted ? "more-details-fadeout" : ""}`}>{showInvitationDetails()}</div>
 
-            <div className={`navigation-wrapper ${isAccepted ? "fade-out-up" : ""}`}>
+            <div className={`navigation-wrapper ${isAccepted ? "more-details-fadeout" : ""}`}>
               <div className="more-details-buttons">
                 {/* Only show Back if we aren't on the first page */}
                 {invitationSteps > 0 && (
@@ -119,17 +130,19 @@ const MainApp = () => {
                 {/* Only show this Next button if we aren't on the first page, 
                   OR move the logic entirely into the components */}
                   {(invitationSteps === 1 && invitationSteps > 0) && (
-                  <button className="invite-button" onClick={handleNextStep}>
+                  <button className="invite-button" onClick={handleSetToPhaseThree}>
                     Next
                   </button>
                   )}
-                  {invitationSteps === 2 && (
-                    <button className="invite-button" onClick={handleSayYesClick}>
-                      Say Yes!
-                    </button>
-                  )}
               </div>
             </div>
+          </div>
+        )}
+
+
+        {phase === 4 && (
+          <div className="phase-4-container">
+            <SayYes onAccept={}/>
           </div>
         )}
       </div>

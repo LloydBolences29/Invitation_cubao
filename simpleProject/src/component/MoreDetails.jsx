@@ -5,7 +5,7 @@ const MoreDetails = () => {
   return (
     <div className="more-details-container">
       <div className="more-details-header">
-        <h3>Can I invite you to a Date?</h3>
+        <h3>Details...</h3>
       </div>
       <div className="more-details-wrapper">
         <div className="details-card animate-card-1">
